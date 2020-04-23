@@ -1,5 +1,17 @@
-﻿namespace CognitiveSocialFrames {
+﻿using System;
+using System.Collections.Generic;
+
+namespace CognitiveSocialFrames {
     public class Frame {
+        
+        public void AddSalienceFeature(IContextFeature newFeature) {
+                
+        }
+
+        public bool TestSalience(SocialContext socialContext) {
+            return true;
+        }
+        
         
     }
 }
