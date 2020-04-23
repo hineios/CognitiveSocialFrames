@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace CognitiveSocialFrames.tests {
@@ -48,36 +46,36 @@ namespace CognitiveSocialFrames.tests {
         
         [Fact]
         public void SocialContextChangedWhenAddingFeatureEventRaised() {
-            bool WhenAddedRaisedEvent = false;
-            _socialContext.OnSocialContextChanged += () => { WhenAddedRaisedEvent = true; };
+            bool whenAddedRaisedEvent = false;
+            _socialContext.OnSocialContextChanged += () => { whenAddedRaisedEvent = true; };
             _socialContext.AddContextFeatures(_contextFeature);
-            Assert.True(WhenAddedRaisedEvent);
+            Assert.True(whenAddedRaisedEvent);
         }
         
         [Fact]
         public void SocialContextChangedWhenAddingDuplicateFeatureEventRaised() {
-            bool WhenAddedRaisedEvent = false;
+            bool whenAddedRaisedEvent = false;
             _socialContext.AddContextFeatures(_contextFeature);
-            _socialContext.OnSocialContextChanged += () => { WhenAddedRaisedEvent = true; };
+            _socialContext.OnSocialContextChanged += () => { whenAddedRaisedEvent = true; };
             _socialContext.AddContextFeatures(_contextFeature);
-            Assert.False(WhenAddedRaisedEvent);
+            Assert.False(whenAddedRaisedEvent);
         }
         
         [Fact]
         public void SocialContextChangedWhenRemovingFeatureEventRaised() {
-            bool WhenRemovedRaisedEvent = false;
+            bool whenRemovedRaisedEvent = false;
             _socialContext.AddContextFeatures(_contextFeature);
-            _socialContext.OnSocialContextChanged += () => { WhenRemovedRaisedEvent = true; };
+            _socialContext.OnSocialContextChanged += () => { whenRemovedRaisedEvent = true; };
             _socialContext.RemoveContextFeatures(_contextFeature);            
-            Assert.True(WhenRemovedRaisedEvent);
+            Assert.True(whenRemovedRaisedEvent);
         }
         
         [Fact]
         public void SocialContextChangedWhenRemovingNotExistentFeatureEventRaised() {
-            bool WhenRemovedRaisedEvent = false;
-            _socialContext.OnSocialContextChanged += () => { WhenRemovedRaisedEvent = true; };
+            bool whenRemovedRaisedEvent = false;
+            _socialContext.OnSocialContextChanged += () => { whenRemovedRaisedEvent = true; };
             _socialContext.RemoveContextFeatures(_contextFeature);            
-            Assert.False(WhenRemovedRaisedEvent);
+            Assert.False(whenRemovedRaisedEvent);
         }
     }
 }

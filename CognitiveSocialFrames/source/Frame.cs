@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CognitiveSocialFrames {
+﻿namespace CognitiveSocialFrames {
     public class Frame {
         
         public void AddSalienceFeature(IContextFeature newFeature) {

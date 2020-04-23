@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using Xunit;
 
 namespace CognitiveSocialFrames.tests {
