@@ -2,9 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-
         <IsPackable>false</IsPackable>
-
+        <AssemblyName>CognitiveSocialFrames.Tests</AssemblyName>
         <RootNamespace>CognitiveSocialFrames.tests</RootNamespace>
     </PropertyGroup>
 
