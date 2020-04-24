@@ -22,9 +22,8 @@ jobs:
       run: dotnet build $solution --configuration Release --no-restore
     - name: Test
       run: dotnet test $solution --no-restore --verbosity normal
-    - name: Upload Releases
-      uses: yakuhzi/action-release@v1
+    - name: Upload Production Build to Artifacts
+      uses: actions/upload-artifact@v1
       with:
-        file: $buildPath
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: Core
+        path: ./CognitiveSocialFrames/source/bin/Release/netcoreapp3.1/CognitiveSocialFrames.dll
