@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       solution: ./CognitiveSocialFrames/CognitiveSocialFrames.sln
+      buildPath: ./CognitiveSocialFrames/source/bin/Release/netcoreapp3.1/CognitiveSocialFrames.dll
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -21,3 +22,8 @@ jobs:
       run: dotnet build $solution --configuration Release --no-restore
     - name: Test
       run: dotnet test $solution --no-restore --verbosity normal
+    - name: Upload Devlopment Build to Artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: Core
+        path: $buildPath
