@@ -24,11 +24,5 @@ jobs:
       run: dotnet build $solution --configuration Release --no-restore
     - name: Test
       run: dotnet test $solution --no-restore --verbosity normal
-    - name: Get pushed tag
-      run: echo ::set-env name=TAG::${GITHUB_REF:10}
-    - name: Publish to NuGet
-      uses: rohith/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: CognitiveSocialFrames/source/source.csproj
-        PACKAGE_NAME: CognitiveSocialFrames
-        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+    - name: Extract Version from .csproj
+      run: echo ::set-env name=tag::$(cat ${{projectPath | grep -o "<Version>(.*)</Version>"})
