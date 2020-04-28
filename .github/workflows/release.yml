@@ -25,6 +25,6 @@ jobs:
     - name: Test
       run: dotnet test $solution --no-restore --verbosity normal
     - name: Extract Version from .csproj
-      run: echo ::set-env name=TAG::$(cat ${{env.projectPath}} | grep -oP "(?<=<Version>).*(?=</Version>)"
+      run: echo ::set-env name=TAG::$(cat ${{env.projectPath}} | grep -oP "(?<=<Version>).*(?=</Version>)")
     - name: Print Version 
       run: echo ${{env.TAG}}
